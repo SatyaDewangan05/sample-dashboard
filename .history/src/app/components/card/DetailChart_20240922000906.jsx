@@ -1,0 +1,33 @@
+import Image from "next/image";
+import Graph from "@/images/graph.png";
+import { IconArrowNarrowUp } from "@tabler/icons-react";
+
+const DetailChart = ({ heading, figure, texts, variation }) => {
+  return (
+    <div className="p-3 rounded-md flex items-center">
+      <div className="flex flex-col gap-2">
+        <p className="text-lg font-medium">{heading}</p>
+        <p className="text-[36px] font-medium">{figure}</p>
+        <div>
+          {Array.isArray(texts)
+            ? texts.map((text, index) => (
+                <p key={index} className="text-base">
+                  {text}
+                </p>
+              ))
+            : null}
+        </div>
+      </div>
+      <div>
+        <div>
+          <p>{variation}</p>
+          <IconArrowNarrowUp />
+          <Image src={Graph} />
+        </div>
+        <div></div>
+      </div>
+    </div>
+  );
+};
+
+export default DetailChart;
