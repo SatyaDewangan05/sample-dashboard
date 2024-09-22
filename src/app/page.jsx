@@ -30,14 +30,18 @@ import { useEffect, useState } from "react";
 import MobileDrawer from "./components/MobileDrawer";
 
 export default function Home() {
-  const [open, setOpen] = useState(false);
-  // const [ mobile, setMobile] = useState(false)
+  const [open, setOpen] = useState(true);
+  const [mobile, setMobile] = useState(false);
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 834) {
+        if (window.innerWidth < 390) {
+          setMobile(true);
+        } else setMobile(false);
         setOpen(false);
       } else {
         setOpen(true);
+        setMobile(false);
       }
     };
 
@@ -57,9 +61,11 @@ export default function Home() {
       <div className="hidden xs:inline">
         <MiniDrawer open={open} setOpen={setOpen} />
       </div>
-      <div className="inline xs:hidden">
-        <MobileDrawer open={open} setOpen={setOpen} />
-      </div>
+      {mobile ? (
+        <div className="inline xs:hidden">
+          <MobileDrawer open={open} setOpen={setOpen} />
+        </div>
+      ) : null}
       <div className="w-full px-6 xs:px-12">
         {/* Top Bar */}
         <div className="w-full py-5 flex justify-between relative">
