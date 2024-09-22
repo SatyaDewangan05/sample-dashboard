@@ -240,7 +240,7 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              <div className="rounded-[10px] border border-gray-300 ">
+              <div className="w-full rounded-[10px] border border-gray-300 ">
                 <div className="p-3 flex justify-between items-center">
                   <p className="text-lg font-medium text-[#161E54]">
                     Upcomming Schedule
@@ -250,7 +250,7 @@ export default function Home() {
                     <IconChevronDown />
                   </div>
                 </div>
-                <div className="xs:max-h-[185px] p-3 flex flex-col gap-3 overflow-hidden">
+                <div className="xs:max-h-[185px] lg:max-h-full p-3 flex flex-col gap-3 overflow-y-hidden">
                   <p className="text-sm text-[#686868]">Priority</p>
                   <Event
                     text="Review candidate applications"
